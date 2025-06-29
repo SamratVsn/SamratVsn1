@@ -39,7 +39,7 @@ const Navbar = () => {
         </div>
 
         {/* Nav Links */}
-        <ul className="flex gap-6 list-none flex-nowrap justify-start md:justify-center sm:flex-row">
+        <ul className="flex gap-6 list-none flex-nowrap justify-start md:justify-center sm:flex-row sm:gap-2 md:gap-6">
           {navLinks.map(({ name, to }) => (
             <li key={to}>
               <Link
