@@ -25,7 +25,7 @@ const Navbar = () => {
             &lt;
           </span>
 
-          <Link to ="/" className="mx-1 no-underline text-[#0ac9eb] font-orbitron font-bold tracking-wide drop-shadow-[0_0_10px_rgba(0,195,255,0.3)]
+          <Link to="/" className="mx-1 no-underline text-[#0ac9eb] font-orbitron font-bold tracking-wide drop-shadow-[0_0_10px_rgba(0,195,255,0.3)]
             text-[1rem] md:text-[1.5rem] logo-text"
           >
             SAMRAT
@@ -39,19 +39,15 @@ const Navbar = () => {
         </div>
 
         {/* Nav Links */}
-        <ul className="hidden md:flex gap-8 list-none flex-nowrap justify-start md:justify-center">
+        <ul className="flex gap-6 list-none flex-nowrap justify-start md:justify-center sm:flex-row">
           {navLinks.map(({ name, to }) => (
             <li key={to}>
               <Link
                 to={to}
-                className={`relative font-medium
-                  text-sm md:text-base
-                  px-1 py-2
-                  transition-all duration-300
-                  ${
-                    pathname === to
-                      ? 'text-[#00c3ff] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#00c3ff] after:animate-fadein'
-                      : 'text-slate-200 hover:text-[#00c3ff]'
+                className={`relative font-medium text-base px-1 py-2 transition-all duration-300
+                  ${pathname === to
+                    ? 'text-[#00c3ff] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#00c3ff] after:animate-fadein'
+                    : 'text-slate-200 hover:text-[#00c3ff]'
                   }`}
               >
                 {name}
@@ -61,7 +57,7 @@ const Navbar = () => {
         </ul>
 
         {/* Social Icons */}
-        <div className="flex items-center gap-4 social-icons">
+        <div className="flex items-center gap-4 social-icons max-[720px]:hidden">
           {[
             { href: "https://www.linkedin.com", fill: "#0A66C2", icon: "linkedin" },
             { href: "https://github.com", fill: "#181717", icon: "github" },
