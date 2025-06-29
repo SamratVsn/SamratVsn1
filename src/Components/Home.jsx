@@ -1,4 +1,4 @@
-import homeImg from '../assets/Home.png';
+import homeImg from '../assets/HOME.png';
 import { Link } from 'react-router-dom';
 import { FaUser, FaEnvelope, FaHtml5, FaCss3Alt, FaJs, FaReact, FaGithub } from 'react-icons/fa';
 import portfolioImg from '../assets/Portfolio1.jpg';
