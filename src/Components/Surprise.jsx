@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const konamiCode = [
   "ArrowUp",
@@ -8,7 +9,7 @@ const konamiCode = [
   "ArrowDown",
   "ArrowDown",
   "ArrowLeft",
-  "Arrowleft",
+  "ArrowLeft",
   "ArrowRight",
   "ArrowRight",
   "b",
@@ -102,12 +103,12 @@ export default function DevEasterEgg() {
           <p>&gt; Access granted. Welcome to the matrix, friend.</p>
           <p>&gt; Continue exploring...</p>
         </div>
-        <button
+        <Link to="/"
           onClick={() => setActive(false)}
           className="mt-4 text-sm underline text-green-400 hover:text-green-300"
         >
           Exit Terminal
-        </button>
+        </Link>
       </motion.div>
     </div>
   );
