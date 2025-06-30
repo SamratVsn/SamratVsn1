@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import { motion } from 'framer-motion';
 import { FaMapMarkerAlt, FaGraduationCap, FaCode } from 'react-icons/fa';
 import { FaReact, FaCss3Alt } from 'react-icons/fa';
@@ -8,7 +9,7 @@ import AboutMeB from '../assets/AboutMeB.png';
 function About() {
   return (
     <div
-      className="min-h-screen flex items-center py-24 bg-cover bg-center text-white"
+      className="min-h-screen flex items-center py-24 bg-cover bg-center text-white pt-[70px]"
       style={{
         backgroundImage: `linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.85)), url(${AboutMeB})`,
       }}
@@ -37,7 +38,7 @@ function About() {
                 Hey, I’m <span className="font-semibold text-white">Samrat Parajuli</span> — a high school student from Nepal, passionate about computer science and web development. With a strong grasp on HTML, CSS, and JS, I’m on a journey to master C and explore networking.
               </p>
               <p className="text-lg leading-loose text-slate-300">
-                Guided by my devotion to <span className="italic text-[#87f7cf]">Lord Krishna</span>, I bring focus, discipline, and purpose into my learning. Whether it’s solving bugs or understanding system internals, I strive to grow with every step.
+                Guided by my devotion to <Link to = "/Surprise" className="italic text-[#87f7cf]">Lord Krishna</Link>, I bring focus, discipline, and purpose into my learning. Whether it’s solving bugs or understanding system internals, I strive to grow with every step.
               </p>
               <p className="text-lg leading-loose text-slate-300">
                 Open to collaborations, mentorship, and meaningful conversations. Let's build, learn, and grow together 🚀
