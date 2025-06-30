@@ -14,7 +14,7 @@ function Home() {
         className="min-h-screen pt-[70px] flex items-center bg-no-repeat bg-center bg-cover"
         style={{ backgroundImage: `url(${homeImg})` }}
       >
-<div className="w-[90%] max-w-[1200px] mx-auto py-10 px-4 flex flex-col lg:flex-row items-center lg:justify-around gap-12 lg:gap-12 text-white bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-3xl">
+        <div className="w-[90%] max-w-[1200px] mx-auto py-10 px-4 flex flex-col lg:flex-row items-center lg:justify-around gap-12 lg:gap-12 text-white bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-3xl">
           {/* LEFT: TEXT */}
           <div className="flex flex-col gap-6 max-w-xl text-center lg:text-left items-center lg:items-start">
             <motion.div
