@@ -102,7 +102,7 @@ export default function DevEasterEgg() {
       {!active && (
         <button
           onClick={handleSecretTap}
-          className="fixed bottom-2 right-2 w-10 h-10 opacity-0 z-40"
+          className="fixed bottom-2 right-2 w-10 h-10 opacity-20 bg-blue-400 z-40"
           aria-label="Secret Trigger"
         />
       )}
