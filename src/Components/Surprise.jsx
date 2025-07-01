@@ -34,14 +34,35 @@ export default function DevEasterEgg() {
   const [buffer, setBuffer] = useState([]);
   const [currentFact, setCurrentFact] = useState(0);
 
+  // ✅ Tap state (mobile support)
+  const [tapCount, setTapCount] = useState(0);
+  const [tapTimer, setTapTimer] = useState(null);
+
+  // ✅ Mobile secret tap logic
+  const handleSecretTap = () => {
+    setTapCount((prev) => {
+      const newCount = prev + 1;
+      if (newCount >= 10) {
+        setActive(true);
+        return 0;
+      }
+      if (newCount === 5) {
+        alert("👀 Something is happening...");
+      }
+
+      if (tapTimer) clearTimeout(tapTimer);
+      const timer = setTimeout(() => setTapCount(0), 2000); // Reset after 2s idle
+      setTapTimer(timer);
+      return newCount;
+    });
+  };
+
   useEffect(() => {
     const handleKeyDown = (e) => {
       setBuffer((prev) => {
-        // Append new key, keep max length of longest code (konamiCode)
         const maxLen = Math.max(konamiCode.length, vsnCode.length);
         const updated = [...prev, e.key].slice(-maxLen);
 
-        // Check Konami code match
         if (
           updated.slice(-konamiCode.length).join("").toLowerCase() ===
           konamiCode.join("").toLowerCase()
@@ -49,7 +70,6 @@ export default function DevEasterEgg() {
           setActive(true);
         }
 
-        // Check vsn code match
         if (
           updated
             .slice(-vsnCode.length)
@@ -76,40 +96,53 @@ export default function DevEasterEgg() {
     }
   }, [active]);
 
-  if (!active) return null;
-
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-90 text-green-400 font-mono p-8 overflow-auto z-50">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="max-w-3xl w-full mx-auto border border-green-400 rounded-lg p-6 shadow-lg bg-black/80"
-      >
-        <h2 className="text-xl mb-4 text-lime-300">
-          [ Samrat's Dev Terminal - SECRET MODE ]
-        </h2>
-        <div className="text-lg leading-relaxed min-h-[4.5rem]">
-          <Typewriter
-            words={[funFacts[currentFact]]}
-            loop={false}
-            cursor
-            typeSpeed={40}
-            deleteSpeed={50}
-            delaySpeed={2000}
-          />
+    <>
+      {/* ✅ Invisible tap zone (works before Easter Egg activates) */}
+      {!active && (
+        <button
+          onClick={handleSecretTap}
+          className="fixed bottom-2 right-2 w-10 h-10 opacity-0 z-40"
+          aria-label="Secret Trigger"
+        />
+      )}
+
+      {/* 🧠 Secret Terminal */}
+      {active && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-90 text-green-400 font-mono p-8 overflow-auto z-50">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="max-w-3xl w-full mx-auto border border-green-400 rounded-lg p-6 shadow-lg bg-black/80"
+          >
+            <h2 className="text-xl mb-4 text-lime-300">
+              [ Samrat's Dev Terminal - SECRET MODE ]
+            </h2>
+            <div className="text-lg leading-relaxed min-h-[4.5rem]">
+              <Typewriter
+                words={[funFacts[currentFact]]}
+                loop={false}
+                cursor
+                typeSpeed={40}
+                deleteSpeed={50}
+                delaySpeed={2000}
+              />
+            </div>
+            <div className="mt-6 text-sm text-green-500 opacity-80">
+              <p>&gt; Loading story logs...</p>
+              <p>&gt; Access granted. Welcome to the matrix, friend.</p>
+              <p>&gt; Continue exploring...</p>
+            </div>
+            <Link
+              to="/"
+              onClick={() => setActive(false)}
+              className="mt-4 text-sm underline text-green-400 hover:text-green-300"
+            >
+              Exit Terminal
+            </Link>
+          </motion.div>
         </div>
-        <div className="mt-6 text-sm text-green-500 opacity-80">
-          <p>&gt; Loading story logs...</p>
-          <p>&gt; Access granted. Welcome to the matrix, friend.</p>
-          <p>&gt; Continue exploring...</p>
-        </div>
-        <Link to="/"
-          onClick={() => setActive(false)}
-          className="mt-4 text-sm underline text-green-400 hover:text-green-300"
-        >
-          Exit Terminal
-        </Link>
-      </motion.div>
-    </div>
+      )}
+    </>
   );
 }
