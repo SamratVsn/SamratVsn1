@@ -177,8 +177,9 @@ const Skills = () => {
             Do you want to play a game?
           </h3>
           <p className="text-lg text-gray-300 mb-8">
-            There’s a riddle written in code, hidden in plain sight. <br />
-            Only those with the right pattern may find it.
+            There’s a riddle written in code, hidden in plain sight.<br />
+            Only those with the right pattern may find it.<br /><br />
+            <em>"Trust in the Supreme, He is the way."</em>
           </p>
           <a
             href="/"
