@@ -16,7 +16,7 @@ import curiosity from "../assets/curiosity.png";
 const skillsData = [
   { name: "React", icon: <FaReact className="text-cyan-400 text-lg sm:text-xl" />, progress: 60 },
   { name: "Tailwind", icon: <SiTailwindcss className="text-sky-400 text-lg sm:text-xl" />, progress: 70 },
-  { name: "JavaScript", icon: <FaJs className="text-yellow-400 text-lg sm:text-xl" />, progress: 49},
+  { name: "JavaScript", icon: <FaJs className="text-yellow-400 text-lg sm:text-xl" />, progress: 49 },
   { name: "C", icon: <FaCuttlefish className="text-gray-200 text-lg sm:text-xl" />, progress: 70 },
 ];
 
@@ -165,6 +165,36 @@ const Skills = () => {
           </motion.div>
         </div>
       </div>
+      <motion.div
+        className="mt-24 text-center"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+      >
+        <div className="inline-block bg-white/5 backdrop-blur-xl border border-white/10 px-12 py-10 rounded-3xl shadow-2xl max-w-3xl mx-auto">
+          <h3 className="text-4xl font-bold text-cyan-300 mb-6">
+            Do you want to play a game?
+          </h3>
+          <p className="text-lg text-gray-300 mb-8">
+            There’s a riddle written in code, hidden in plain sight. <br />
+            Only those with the right pattern may find it.
+          </p>
+          <a
+            href="/"
+            className="w-full sm:w-auto block text-center text-xl bg-gradient-to-r from-cyan-400 to-green-400 text-gray-900 font-extrabold px-8 py-3 rounded-full hover:scale-105 transition-transform shadow-lg"
+          >
+            Accept the Challenge
+          </a>
+          <div className="mt-8 text-sm sm:text-base text-gray-400 space-y-2 font-mono italic">
+            <p>🧠 Hint 1: "What defines you is right in front of you."</p>
+            <p>🌐 Hint 2: "Sometimes, the URL knows more than it shows."</p>
+            <p>🕹️ Bonus: "The right pattern unlocks the gate. Start with Up... end with A."</p>
+            <p>🔁 "If not once, try it twice. Maybe it works."</p>
+          </div>
+        </div>
+      </motion.div>
+
     </div>
   );
 };
